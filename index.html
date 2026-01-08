@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iAssess – Online Examination Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<div class="main">
+
+    <h1 id="examTitle"></h1>
+    <h3 id="examAuthority"></h3>
+
+    <div id="countdown"></div>
+    <div id="timeRemaining"></div>
+
+    <div class="section" id="examDetails"></div>
+
+    <div class="section">
+        <h2>📝 Important Instructions</h2>
+        <ul id="instructions"></ul>
+    </div>
+
+    <div class="section">
+        <h2>🔐 Candidate Sign In</h2>
+
+        <label>Shiksha ID</label>
+        <input type="text" id="shikshaId">
+
+        <label>OTEP</label>
+        <input type="password" id="otep">
+
+        <button id="signinBtn">Sign In</button>
+
+        <div id="errorBox"></div>
+        <div id="linkBtn">Open Examination</div>
+    </div>
+
+    <div class="brand">technoSoft</div>
+</div>
+
+<audio id="startSound"></audio>
+<audio id="endSound"></audio>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,102 +1,196 @@
-# iAssess Exam Portal
+# 📘 iAssess – Online Examination Portal
 
-**iAssess Exam Portal** is a basic online examination entry system built using **HTML, CSS, and JavaScript**.
-It simulates a real online exam environment with countdown timer, secure sign-in, exam start time validation, and exam duration tracking.
+**iAssess** is a lightweight, configurable, web-based examination entry portal designed for engineering entrance exams, screening tests, and internal assessments.
+It provides **secure candidate sign-in**, **time-based exam activation**, **live countdown**, and **controlled exam access** using pure frontend technologies.
 
-This project is useful for **learning**, **demo**, and **POC-level assessment systems**.
+This project is ideal for:
 
----
-
-## 🚀 Features
-
-* Exam countdown timer (before exam starts)
-* Exam goes LIVE only at fixed date & time
-* Secure login using Shiksha ID and OTEP
-* Exam link opens only after verification
-* Fixed exam duration with live time remaining
-* Auto alert when exam time is over
-* Tab switch detection warning
-* Page reload / exit restriction during exam
-* Clean modern UI (glassmorphism style)
-* Audio alerts for exam start and end
+* Engineering entrance exams
+* Internal screening tests
+* Practice/mock test portals
+* Learning system design fundamentals
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Key Features
 
-* HTML5
-* CSS3
-* JavaScript (Vanilla JS)
+* 🔐 **Candidate Authentication**
 
-No external libraries or frameworks used.
+  * Shiksha ID + OTEP validation
+* ⏳ **Live Countdown Timer**
 
----
+  * Displays remaining time until exam starts
+* 🕙 **Time-Restricted Exam Access**
 
-## 🧩 How It Works
+  * Exam link opens only after scheduled start time
+* 🔊 **Audio Alerts**
 
-1. Candidate enters **Shiksha ID** and **OTEP**
-2. System validates credentials
-3. Exam link becomes active only at exam start time
-4. Exam timer starts once exam opens
-5. Remaining time is shown live
-6. Exam auto-ends after fixed duration
+  * Start sound when exam opens
+* 🧩 **Config-Driven Design**
 
----
+  * No hardcoded values in application logic
+* 🎨 **Modern Glassmorphism UI**
 
-## 🔐 Demo Credentials (for testing)
+  * Clean, responsive, professional design
+* 🚫 **No Backend Dependency**
 
-```
-Shiksha ID : NTC980320
-OTEP       : 20031998
-```
+  * Works fully as a static web application (can be extended)
 
 ---
 
-## 📅 Exam Configuration (in code)
+## 🛠️ Technology Stack
 
-```js
-const examOpenDate = new Date("2026-01-14T10:00:00");
-const EXAM_DURATION_MS = 120 * 60 * 1000;
-```
-
-You can edit these values to reuse the portal for other exams.
+* **HTML5**
+* **CSS3**
+* **Vanilla JavaScript**
+* No frameworks
+* No backend (frontend-only architecture)
 
 ---
 
 ## 📂 Project Structure
 
 ```
-iassess-exam-portal/
+iAssess-exam-portal/
 │
-├── index.html
+├── index.html          # Main application entry
+│
+├── css/
+│   └── styles.css      # Complete UI styling
+│
+├── js/
+│   ├── config.js       # Centralized configuration (NO hardcoding)
+│   └── app.js          # Application logic
+│
 └── README.md
 ```
 
 ---
 
-## ⚠️ Disclaimer
+## ⚙️ Configuration (Important)
 
-This project is created for **learning and demonstration purposes only**.
-It is **not production-ready** and does not include backend validation or real security controls.
+All exam-specific values are controlled from **one single file**:
+
+```
+js/config.js
+```
+
+### You can configure:
+
+* Exam title & authority
+* Exam date and start time
+* Exam duration
+* Candidate credentials
+* Exam redirection link
+* Instructions list
+* Audio alerts
+
+### Example:
+
+```javascript
+const EXAM_CONFIG = {
+    title: "NTC Online Examination Portal",
+    authority: "National Testing Commission (Engineering Division)",
+
+    exam: {
+        name: "Engineering Entrance Examination",
+        code: "EEE001-CSE&IT",
+        startTime: "2026-01-14T10:00:00",
+        durationMinutes: 120,
+        link: "https://example.com/exam"
+    },
+
+    credentials: {
+        shikshaId: "NTC980320",
+        otep: "20031998"
+    }
+};
+```
+
+👉 **No application code needs to be modified** when exam details change.
 
 ---
 
-## ✨ Future Improvements
+## ▶️ How to Run the Project
+
+### Option 1: Run Locally (Recommended)
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/iAssess-exam-portal.git
+   ```
+
+2. Open the project folder in **VS Code**
+
+3. Open `index.html` using:
+
+   * VS Code **Live Server** extension
+     **OR**
+   * Directly open in a browser
+
+---
+
+### Option 2: Deploy as Static Site
+
+You can deploy this project on:
+
+* GitHub Pages
+* Netlify
+* Vercel
+* Any static hosting service
+
+No server configuration required.
+
+---
+
+## 🔐 Authentication Logic (Frontend Only)
+
+> ⚠️ **Important Disclaimer**
+
+Authentication is currently implemented on the **client side** for educational and demonstration purposes.
+
+For real examinations:
+
+* Backend validation is mandatory
+* Credentials must never be exposed in frontend code
+* Server-side session management is required
+
+---
+
+## 🧠 Design Principles Used
+
+* Separation of concerns (HTML / CSS / JS)
+* Configuration-driven architecture
+* Event-based UI handling
+* Minimal dependencies
+* Extendable for backend integration
+
+---
+
+## 🚀 Possible Enhancements
 
 * Backend authentication (Spring Boot / Node.js)
-* Database integration
-* Question rendering engine
-* Auto submission
-* Result evaluation
+* MCQ test engine
+* Question randomization
+* Timer persistence (anti-refresh)
+* Result evaluation & analytics
+* Proctoring (tab switch logs, webcam support)
 * Admin dashboard
 
 ---
 
 ## 👨‍💻 Author
 
-Developed by **Naveen Prasanna**
-POC project for online assessment systems.
+**Naveen Prasanna**
+Software Engineer
+India
 
 ---
 
-Just tell me 👍
+## 📜 License
+
+This project is provided for **educational and internal use only**.
+You are free to modify and extend it for learning and practice purposes.
+
+---
