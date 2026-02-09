@@ -1,196 +1,126 @@
-# 📘 iAssess – Online Examination Portal
+# iAssess – Online Secure Examination Portal (v2.0)
 
-**iAssess** is a lightweight, configurable, web-based examination entry portal designed for engineering entrance exams, screening tests, and internal assessments.
-It provides **secure candidate sign-in**, **time-based exam activation**, **live countdown**, and **controlled exam access** using pure frontend technologies.
-
-This project is ideal for:
-
-* Engineering entrance exams
-* Internal screening tests
-* Practice/mock test portals
-* Learning system design fundamentals
+> **A modern, secure, browser-based examination portal UI** designed for scheduled online exams with candidate verification and exam session control.
 
 ---
 
-## ✨ Key Features
-
-* 🔐 **Candidate Authentication**
-
-  * Shiksha ID + OTEP validation
-* ⏳ **Live Countdown Timer**
-
-  * Displays remaining time until exam starts
-* 🕙 **Time-Restricted Exam Access**
-
-  * Exam link opens only after scheduled start time
-* 🔊 **Audio Alerts**
-
-  * Start sound when exam opens
-* 🧩 **Config-Driven Design**
-
-  * No hardcoded values in application logic
-* 🎨 **Modern Glassmorphism UI**
-
-  * Clean, responsive, professional design
-* 🚫 **No Backend Dependency**
-
-  * Works fully as a static web application (can be extended)
+## 🎯 What is iAssess?
+**iAssess** is an **Online Secure Examination Platform UI** that provides a disciplined exam entry workflow:
+- Scheduled access window
+- Candidate sign-in verification
+- Mandatory camera photo capture
+- Secure fullscreen exam mode
+- Countdown and sound alerts
 
 ---
 
-## 🛠️ Technology Stack
+## ✅ Highlights (v2.0)
 
-* **HTML5**
-* **CSS3**
-* **Vanilla JavaScript**
-* No frameworks
-* No backend (frontend-only architecture)
+### 🕒 Scheduled Exam Access
+- Exam can be opened **only during the configured time window**
+- Entry blocked **before start time**
+- Access disabled **after end time**
+
+### 📷 Candidate Verification
+- **Photo capture is mandatory**
+- Candidate cannot sign-in without capturing photo
+
+### 🔒 Secure Fullscreen Exam Mode
+- Fullscreen auto-enabled at exam start
+- Fullscreen exit attempts are blocked during the session
+- Helps restrict tab switching / leaving the exam environment
+
+### ⏳ Smart Countdown Timers
+- Countdown until exam opens
+- Countdown until exam window closes
+- Displayed in multiple UI locations (header + sign-in area)
+
+### 🔊 Exam Audio Alerts
+- Start sound when exam begins
+- 10-second remaining warning sound
+- Loud, long “time over” sound after exam duration completes
+
+### 🧱 Clean Two-Panel Layout
+- LEFT: Exam details + instructions
+- RIGHT: Candidate Sign-in + photo capture
+- Responsive: switches to single column for mobile/tablet
 
 ---
 
-## 📂 Project Structure
-
-```
-iAssess-exam-portal/
-│
-├── index.html          # Main application entry
-│
-├── css/
-│   └── styles.css      # Complete UI styling
-│
-├── js/
-│   ├── config.js       # Centralized configuration (NO hardcoding)
-│   └── app.js          # Application logic
-│
-└── README.md
+## 🧩 Included Files
 ```
 
+index.html
+README.md
+
+````
+
 ---
 
-## ⚙️ Configuration (Important)
+## ⚙️ Configuration (Use for Any Exam)
+Edit inside `index.html`:
 
-All exam-specific values are controlled from **one single file**:
+### Exam Schedule Window
+```js
+const examStartDateTime = new Date("YYYY-MM-DDTHH:MM:SS");
+const examEndDateTime   = new Date("YYYY-MM-DDTHH:MM:SS");
+````
 
-```
-js/config.js
-```
+### Exam Duration
 
-### You can configure:
-
-* Exam title & authority
-* Exam date and start time
-* Exam duration
-* Candidate credentials
-* Exam redirection link
-* Instructions list
-* Audio alerts
-
-### Example:
-
-```javascript
-const EXAM_CONFIG = {
-    title: "NTC Online Examination Portal",
-    authority: "National Testing Commission (Engineering Division)",
-
-    exam: {
-        name: "Engineering Entrance Examination",
-        code: "EEE001-CSE&IT",
-        startTime: "2026-01-14T10:00:00",
-        durationMinutes: 120,
-        link: "https://example.com/exam"
-    },
-
-    credentials: {
-        shikshaId: "NTC980320",
-        otep: "20031998"
-    }
-};
+```js
+const EXAM_DURATION_MS = <minutes> * 60 * 1000;
 ```
 
-👉 **No application code needs to be modified** when exam details change.
+### Exam Launch URL
+
+```js
+const EXAM_LINK = "<CONFIDENTIAL_EXAM_URL>";
+```
+
+### Candidate Login Credentials
+
+```js
+const correctID   = "<CANDIDATE_ID>";
+const correctOTEP = "<OTEP_PASSWORD>";
+```
 
 ---
 
-## ▶️ How to Run the Project
+## ▶️ How to Run
 
-### Option 1: Run Locally (Recommended)
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/iAssess-exam-portal.git
-   ```
-
-2. Open the project folder in **VS Code**
-
-3. Open `index.html` using:
-
-   * VS Code **Live Server** extension
-     **OR**
-   * Directly open in a browser
+1. Download / clone the project
+2. Open `index.html` in a browser
+3. Allow **Camera Permission**
+4. Sign in → Open Examination
 
 ---
 
-### Option 2: Deploy as Static Site
+## 🌐 Compatibility
 
-You can deploy this project on:
+✅ Google Chrome
+✅ Microsoft Edge
 
-* GitHub Pages
-* Netlify
-* Vercel
-* Any static hosting service
-
-No server configuration required.
+(Camera + fullscreen features require modern browsers.)
 
 ---
 
-## 🔐 Authentication Logic (Frontend Only)
+## 🔐 Notes (Security)
 
-> ⚠️ **Important Disclaimer**
+This is a **frontend-only portal UI**:
 
-Authentication is currently implemented on the **client side** for educational and demonstration purposes.
-
-For real examinations:
-
-* Backend validation is mandatory
-* Credentials must never be exposed in frontend code
-* Server-side session management is required
+* Not production-secure without backend integration
+* Client-side credentials are for demo/simulation
+* Recommended: server-side auth + logging + encrypted exam sessions
 
 ---
 
-## 🧠 Design Principles Used
+## 🏢 Developed By
 
-* Separation of concerns (HTML / CSS / JS)
-* Configuration-driven architecture
-* Event-based UI handling
-* Minimal dependencies
-* Extendable for backend integration
+**technoSoft — A Software Company**
 
----
+***Developed by: Naveen Prasanna***
 
-## 🚀 Possible Enhancements
-
-* Backend authentication (Spring Boot / Node.js)
-* MCQ test engine
-* Question randomization
-* Timer persistence (anti-refresh)
-* Result evaluation & analytics
-* Proctoring (tab switch logs, webcam support)
-* Admin dashboard
-
----
-
-## 👨‍💻 Author
-
-**Naveen Prasanna**
-Software Engineer
-India
-
----
-
-## 📜 License
-
-This project is provided for **educational and internal use only**.
-You are free to modify and extend it for learning and practice purposes.
+***Platform:*** iAssess – Online Secure Examination Platform
 
 ---

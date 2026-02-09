@@ -1,0 +1,207 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.main {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(255,255,255,0.06);
+    padding: 35px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 0;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+/* Two-column layout */
+.grid {
+    margin-top: 20px;
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.leftCol {
+    flex: 1.1;
+    min-width: 320px; /* This caused the mobile issue */
+}
+
+.rightCol {
+    flex: 0.9;
+    min-width: 320px; /* This caused the mobile issue */
+    position: sticky;
+    top: 20px;
+}
+
+.section {
+    margin-top: 0;
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+    outline: none;
+}
+
+#signinBtn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+#linkBtn {
+    display: none;
+    margin-top: 20px;
+    padding: 12px;
+    background: #22c55e;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+#errorBox {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(255,0,0,0.18);
+    border-left: 4px solid #ef4444;
+    border-radius: 8px;
+    display: none;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+#countdown, #countdown2 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+/* Sticky countdown */
+#countdown{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 10px 10px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.brand {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.7;
+    font-family: "Lexend", "Segoe UI", Arial, sans-serif;
+}
+
+/* Candidate Photo Capture UI styles */
+#photoCaptureBox {
+    margin-top: 12px;
+    margin-bottom: 18px;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+}
+
+#captureBtn {
+    width: 100%;
+    padding: 12px;
+    background: #fbbf24;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+#camVideo, #capturedPhoto {
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.2);
+    object-fit: cover;
+    display: none;
+}
+
+/* =========================================
+   ✅ MOBILE FIX (Add this part only)
+   ========================================= */
+@media (max-width: 900px) {
+    /* 1. Reduce outer padding so it fits on small screens */
+    body {
+        padding: 10px;
+    }
+    
+    .main { 
+        padding: 15px; 
+        max-width: 100%;
+    }
+
+    /* 2. Stack columns vertically */
+    .grid { 
+        flex-direction: column; 
+    }
+
+    /* 3. Disable the fixed width that was causing the cut-off */
+    .leftCol, .rightCol {
+        min-width: 100%; /* Forces it to fit the screen width */
+        width: 100%;
+    }
+
+    .rightCol { 
+        position: static; 
+    }
+    
+    h1 {
+        font-size: 22px; /* Slightly smaller text for mobile */
+    }
+}
