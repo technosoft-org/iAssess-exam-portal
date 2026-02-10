@@ -11,7 +11,16 @@ document.getElementById("disp_examCode").innerText = CONFIG.examCode;
 document.getElementById("disp_examDate").innerText = CONFIG.examDateText;
 document.getElementById("disp_examTime").innerText = CONFIG.examTimeText;
 document.getElementById("disp_duration").innerText = CONFIG.examDurationMinutes + " minutes";
-document.getElementById("disp_startTimeInfo").innerText = CONFIG.examTimeText.split("–")[0]; // Grabs start time part
+document.getElementById("disp_startTimeInfo").innerText = CONFIG.examTimeText.split("–")[0]; 
+
+// CHECK PHOTO CONFIG
+if (CONFIG.photoCapture === "disable") {
+    // Hide the entire photo capture UI if disabled
+    document.getElementById("photoCaptureBox").style.display = "none";
+    // Hide the instruction text about photos
+    const instr = document.getElementById("instr_photo");
+    if(instr) instr.style.display = "none";
+}
 
 let isPhotoCaptured = false;
 let isSignedIn = false;
@@ -118,10 +127,12 @@ function signin() {
     const errorBox = document.getElementById("errorBox");
     const linkBtn = document.getElementById("linkBtn");
 
-    if (!isPhotoCaptured) {
+    // Only enforce photo capture if it's ENABLED in config
+    if (CONFIG.photoCapture === "enable" && !isPhotoCaptured) {
         showError("❌ Photo capture is mandatory before Sign In.");
         return;
     }
+    
     if (id === CONFIG.correctID && otp === CONFIG.correctOTEP) {
         isSignedIn = true;
         errorBox.style.display = "none";

@@ -7,6 +7,11 @@ const CONFIG = {
     correctID: "NTC980320",      // User ID
     correctOTEP: "20031998",     // Password
 
+    // 📸 PHOTO SECURITY SETTINGS
+    // "enable"  = Photo capture is MANDATORY to sign in.
+    // "disable" = Photo capture is HIDDEN and NOT required.
+    photoCapture: "enable",
+
     // 🔗 EXAM LINK
     examLink: "https://gemini.google.com/share/07921f70d61c",
 
