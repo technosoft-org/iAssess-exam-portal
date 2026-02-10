@@ -18,7 +18,7 @@ const CONFIG = {
     photoCapture: "disable",
 
     // 🔗 EXAM LINK
-    examLink: "https://gemini.google.com/share/3b1989cf49d7",  //MOCK EXAM LINK
+    examLink: "https://gemini.google.com/share/11c8a232059e",  //MOCK EXAM LINK
     //examLink: "https://gemini.google.com/share/07921f70d61c", //ACTUAL EXAM LINK
 
     // 🗓️ SCHEDULE (Format: YYYY-MM-DDTHH:MM:SS)
