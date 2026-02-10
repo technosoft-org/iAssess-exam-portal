@@ -88,11 +88,22 @@ function enableFullscreenLock() {
    COUNTDOWN & LOGIC
    ========================== */
 function updateCountdownUI() {
+    const c1 = document.getElementById("countdown");
+    const c2 = document.getElementById("countdown2");
+
+    // 1. Check for Force Live Mode First
+    if (CONFIG.forceLiveMode === "enable") {
+        const msg = `🟢 LIVE MODE ACTIVE | Exam is Open`;
+        c1.innerHTML = msg;
+        c2.innerHTML = msg;
+        c1.style.color = "#4ade80"; // Green color
+        return;
+    }
+
+    // 2. Standard Time Logic
     const now = new Date().getTime();
     const start = examStartDateTime.getTime();
     const end = examEndDateTime.getTime();
-    const c1 = document.getElementById("countdown");
-    const c2 = document.getElementById("countdown2");
 
     if (now < start) {
         const dist = start - now;
@@ -102,6 +113,7 @@ function updateCountdownUI() {
         const s = Math.floor((dist % (1000 * 60)) / 1000);
         c1.innerHTML = `⏳ Exam starts in: ${d}d : ${h}h : ${m}m : ${s}s`;
         c2.innerHTML = "";
+        c1.style.color = "#38bdf8";
         return;
     }
     if (now >= start && now <= end) {
@@ -112,11 +124,13 @@ function updateCountdownUI() {
         const msg = `✅ Exam window OPEN | Closes in: ${h}h : ${m}m : ${s}s`;
         c1.innerHTML = msg;
         c2.innerHTML = msg;
+        c1.style.color = "#38bdf8";
         return;
     }
     const msg = "⛔ Examination window CLOSED";
     c1.innerHTML = msg;
     c2.innerHTML = msg;
+    c1.style.color = "#ef4444";
     document.getElementById("linkBtn").style.display = "none";
 }
 setInterval(updateCountdownUI, 1000);
@@ -127,7 +141,7 @@ function signin() {
     const errorBox = document.getElementById("errorBox");
     const linkBtn = document.getElementById("linkBtn");
 
-    // Only enforce photo capture if it's ENABLED in config
+    // Check Photo Config
     if (CONFIG.photoCapture === "enable" && !isPhotoCaptured) {
         showError("❌ Photo capture is mandatory before Sign In.");
         return;
@@ -136,8 +150,12 @@ function signin() {
     if (id === CONFIG.correctID && otp === CONFIG.correctOTEP) {
         isSignedIn = true;
         errorBox.style.display = "none";
+        
         const now = new Date().getTime();
-        if (now >= examStartDateTime.getTime() && now <= examEndDateTime.getTime()) {
+        const isTimeValid = (now >= examStartDateTime.getTime() && now <= examEndDateTime.getTime());
+
+        // Show link if Time is valid OR Live Mode is forced
+        if (CONFIG.forceLiveMode === "enable" || isTimeValid) {
             linkBtn.style.display = "block";
         } else {
             showError("⚠️ Signed in, but exam link is not active yet.", "orange");
@@ -150,8 +168,13 @@ function signin() {
 function openExam() {
     const now = new Date().getTime();
     if (!isSignedIn) return showError("❌ Please Sign In first.");
-    if (now < examStartDateTime.getTime()) return showError("⚠️ Exam not started yet.", "orange");
-    if (now > examEndDateTime.getTime()) return showError("⛔ Exam window CLOSED.");
+
+    // Only check time if Live Mode is NOT enabled
+    if (CONFIG.forceLiveMode !== "enable") {
+        if (now < examStartDateTime.getTime()) return showError("⚠️ Exam not started yet.", "orange");
+        if (now > examEndDateTime.getTime()) return showError("⛔ Exam window CLOSED.");
+    }
+
     if (examSessionRunning) return showError("⚠️ Exam already running.", "orange");
 
     examSessionRunning = true;
