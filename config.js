@@ -19,7 +19,7 @@ const CONFIG = {
 
     // 🔗 EXAM LINK
     examLink: "https://gemini.google.com/share/11c8a232059e",  //MOCK EXAM LINK
-    //examLink: "https://gemini.google.com/share/07921f70d61c", //ACTUAL EXAM LINK
+    //examLink: "https://gemini.google.com/share/d8c738f8188a", //ACTUAL EXAM LINK
 
     // 🗓️ SCHEDULE (Format: YYYY-MM-DDTHH:MM:SS)
     // Make sure to use military time (24-hour format)
