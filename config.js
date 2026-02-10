@@ -10,7 +10,7 @@ const CONFIG = {
     // 📸 PHOTO SECURITY SETTINGS
     // "enable"  = Photo capture is MANDATORY to sign in.
     // "disable" = Photo capture is HIDDEN and NOT required.
-    photoCapture: "enable",
+    photoCapture: "disable",
 
     // 🔗 EXAM LINK
     examLink: "https://gemini.google.com/share/07921f70d61c",
