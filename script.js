@@ -65,7 +65,8 @@ function playExamOverSound() {
 async function enterFullscreen() {
     const el = document.documentElement;
     if (!document.fullscreenElement) {
-        if (el.requestFullscreen) return el.requestFullscreen();
+        // Browsers require user interaction. This might fail if called automatically without a click.
+        if (el.requestFullscreen) return el.requestFullscreen().catch(e => console.log("FS Blocked"));
         if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
     }
 }
@@ -140,6 +141,9 @@ function signin() {
     const otp = document.getElementById("otep").value.trim();
     const errorBox = document.getElementById("errorBox");
     const linkBtn = document.getElementById("linkBtn");
+
+    // Also trigger FS here to be safe
+    enterFullscreen();
 
     // Check Photo Config
     if (CONFIG.photoCapture === "enable" && !isPhotoCaptured) {
@@ -243,3 +247,13 @@ function showError(msg, color="red") {
         }
     });
 })();
+
+/* ==========================
+   🚨 AUTO-FULLSCREEN TRIGGER
+   ========================== */
+// This triggers Fullscreen on the VERY FIRST CLICK anywhere on the page
+document.addEventListener("click", function() {
+    if (!document.fullscreenElement) {
+        enterFullscreen().catch(err => console.log("FS prevented"));
+    }
+}, { once: true });
