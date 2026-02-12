@@ -1,5 +1,7 @@
 # iAssess – Online Secure Examination Portal (v2.0)
 
+<img width="960" height="321" alt="ChatGPT Image Feb 12, 2026, 08_48_39 AM" src="https://github.com/user-attachments/assets/11384f62-79ff-4b0f-a4a5-a2c9302c4519" />
+
 > **A modern, secure, browser-based examination portal UI** designed for scheduled online exams with candidate verification and exam session control.
 
 ---
