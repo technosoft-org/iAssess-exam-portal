@@ -10,12 +10,12 @@ const CONFIG = {
     // ⚡ FORCE LIVE MODE (Overrides Schedule)
     // "enable"  = Exam is OPEN NOW (ignores Date & Time below).
     // "disable" = Exam follows the Date & Time strictly.
-    forceLiveMode: "enable", 
+    forceLiveMode: "enable",
 
     // 📸 PHOTO SECURITY SETTINGS
     // "enable"  = Photo capture is MANDATORY to sign in.
     // "disable" = Photo capture is HIDDEN and NOT required.
-    photoCapture: "disable",
+    photoCapture: "enable",
 
     // 🔗 EXAM LINK
     examLink: "https://gemini.google.com/share/11c8a232059e",  //MOCK EXAM LINK
@@ -23,8 +23,8 @@ const CONFIG = {
 
     // 🗓️ SCHEDULE (Format: YYYY-MM-DDTHH:MM:SS)
     // Make sure to use military time (24-hour format)
-    startDateTime: "2026-02-28T19:00:00", 
-    endDateTime:   "2026-02-28T21:00:00",
+    startDateTime: "2026-02-28T19:00:00",
+    endDateTime: "2026-02-28T21:00:00",
 
     // ⏳ DURATION (in minutes)
     examDurationMinutes: 120,
