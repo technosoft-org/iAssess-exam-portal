@@ -10,21 +10,23 @@ const CONFIG = {
     // ⚡ FORCE LIVE MODE (Overrides Schedule)
     // "enable"  = Exam is OPEN NOW (ignores Date & Time below).
     // "disable" = Exam follows the Date & Time strictly.
-    forceLiveMode: "disable",
+    forceLiveMode: "enable",
 
     // 📸 PHOTO SECURITY SETTINGS
     // "enable"  = Photo capture is MANDATORY to sign in.
     // "disable" = Photo capture is HIDDEN and NOT required.
-    photoCapture: "enable",
+    photoCapture: "disable",
 
-    // 🔗 EXAM LINK
-    examLink: "https://gemini.google.com/share/11c8a232059e",  //MOCK EXAM LINK
-    //examLink: "https://gemini.google.com/share/d8c738f8188a", //ACTUAL EXAM LINK
+    // 🔗 EXAM LINKS
+    //MOCK EXAM LINK
+    examLink: "https://gemini.google.com/share/11c8a232059e",
+    //ACTUAL EXAM LINK
+    //examLink: "https://gemini.google.com/share/d8c738f8188a",
 
     // 🗓️ SCHEDULE (Format: YYYY-MM-DDTHH:MM:SS)
     // Make sure to use military time (24-hour format)
-    startDateTime: "2026-01-28T19:00:00",
-    endDateTime: "2026-01-28T21:00:00",
+    startDateTime: "2026-03-07T19:00:00",
+    endDateTime: "2026-03-07T21:00:00",
 
     // ⏳ DURATION (in minutes)
     examDurationMinutes: 120,
@@ -32,6 +34,6 @@ const CONFIG = {
     // 📝 DISPLAY DETAILS (These appear on the screen)
     examName: "Graduate Eligibility Test - CSE",
     examCode: "GET-CSE-001",
-    examDateText: "28 February 2026",
-    examTimeText: "07:00 PM – 09:00 PM"
+    examDateText: "07 March 2026",
+    examTimeText: "07:00 PM to 09:00 PM"
 };
