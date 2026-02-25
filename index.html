@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>NTC Online Examination Portal</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>NTC Online Examination Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="main">
+    <div class="main">
 
-    <h1>NTC Online Examination Portal</h1>
-    <h3>National Testing Commission</h3>
+        <h1>National Testing Commission</h1>
+        <h3>Online Examination Portal</h3>
 
-    <div id="countdown"></div>
+        <div id="countdown"></div>
 
-    <div class="grid">
-        <div class="leftCol">
-            <div class="section">
-                <h2 style="margin-top:0;">📘 Examination Details</h2>
+        <div class="grid">
+            <div class="leftCol">
+                <div class="section">
+                    <h2 style="margin-top:0;">📘 Examination Details</h2>
 
-                <p><b>Examination Name:</b> <span style="color:#38bdf8;" id="disp_examName">Loading...</span></p>
-                <p><b>Examination Code:</b> <span style="color:#38bdf8;" id="disp_examCode">...</span></p>
-                <p><b>Examination Date:</b> <span style="color:#38bdf8;" id="disp_examDate">...</span></p>
-                <p><b>Examination Time:</b> <span style="color:#38bdf8;" id="disp_examTime">...</span></p>
+                    <p><b>Examination Name:</b> <span style="color:#38bdf8;" id="disp_examName">Loading...</span></p>
+                    <p><b>Examination Code:</b> <span style="color:#38bdf8;" id="disp_examCode">...</span></p>
+                    <p><b>Examination Date:</b> <span style="color:#38bdf8;" id="disp_examDate">...</span></p>
+                    <p><b>Examination Time:</b> <span style="color:#38bdf8;" id="disp_examTime">...</span></p>
 
-                <p><b>Mode:</b> Online Secure Assessment</p>
-                <p><b>Total Duration:</b> <span style="color:#fbbf24; font-weight:bold;" id="disp_duration">...</span></p>
-                <p><b>Note:</b> Exam can be opened strictly within the above time window.</p>
-            </div>
-
-            <div class="section">
-                <h2 style="margin-top:0;">📝 Important Instructions</h2>
-                <ul>
-                    <li>Sign in using your valid <b>Shiksha ID</b> and <b>OTEP</b>.</li>
-                    <li id="instr_photo"><b>Photo capture is mandatory</b> before Sign In.</li>
-                    <li>Exam link activates strictly at <b id="disp_startTimeInfo">...</b>.</li>
-                    <li>Do not refresh or close the browser during the examination.</li>
-                    <li>Ensure stable and uninterrupted internet connection.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="rightCol">
-            <div class="section">
-                <h2 style="margin-top:0;">🔐 Candidate Sign In</h2>
-                
-                <div id="countdown2"></div>
-
-                <div id="photoCaptureBox">
-                    <button id="captureBtn" type="button">Capture Photo</button>
-                    <video id="camVideo" autoplay playsinline></video>
-                    <canvas id="camCanvas" style="display:none;"></canvas>
-                    <img id="capturedPhoto" />
+                    <p><b>Mode:</b> Online Secure Assessment</p>
+                    <p><b>Total Duration:</b> <span style="color:#fbbf24; font-weight:bold;"
+                            id="disp_duration">...</span></p>
+                    <p><b>Note:</b> Exam can be opened strictly within the above time window.</p>
                 </div>
 
-                <label>Shiksha ID</label>
-                <input type="text" id="shikshaId" placeholder="Enter your Shiksha ID">
+                <div class="section">
+                    <h2 style="margin-top:0;">📝 Important Instructions</h2>
+                    <ul>
+                        <li>Sign in using your valid <b>Shiksha ID</b> and <b>OTEP</b>.</li>
+                        <li id="instr_photo"><b>Photo capture is mandatory</b> before Sign In.</li>
+                        <li>Exam link activates strictly at <b id="disp_startTimeInfo">...</b>.</li>
+                        <li>Do not refresh or close the browser during the examination.</li>
+                        <li>Ensure stable and uninterrupted internet connection.</li>
+                    </ul>
+                </div>
+            </div>
 
-                <label>OTEP (One-Time Examination Password)</label>
-                <input type="password" id="otep" placeholder="Password">
+            <div class="rightCol">
+                <div class="section">
+                    <h2 style="margin-top:0;">🔐 Candidate Sign In</h2>
 
-                <button id="signinBtn" onclick="signin()">Sign In</button>
+                    <div id="countdown2"></div>
 
-                <div id="errorBox"></div>
+                    <div id="photoCaptureBox">
+                        <button id="captureBtn" type="button">Capture Photo</button>
+                        <video id="camVideo" autoplay playsinline></video>
+                        <canvas id="camCanvas" style="display:none;"></canvas>
+                        <img id="capturedPhoto" />
+                    </div>
 
-                <div id="linkBtn" onclick="openExam()">Open Examination</div>
+                    <label>Shiksha ID</label>
+                    <input type="text" id="shikshaId" placeholder="Enter your Shiksha ID">
+
+                    <label>OTEP (One-Time Examination Password)</label>
+                    <input type="password" id="otep" placeholder="Password">
+
+                    <button id="signinBtn" onclick="signin()">Sign In</button>
+
+                    <div id="errorBox"></div>
+
+                    <div id="linkBtn" onclick="openExam()">Open Examination</div>
+                </div>
             </div>
         </div>
+
+        <div class="brand">technoSoft</div>
+
     </div>
 
-    <div class="brand">technoSoft</div>
-
-</div>
-
-<script src="config.js"></script>
-<script src="script.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
