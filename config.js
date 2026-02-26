@@ -10,7 +10,7 @@ const CONFIG = {
     // ⚡ FORCE LIVE MODE (Overrides Schedule)
     // "enable"  = Exam is OPEN NOW (ignores Date & Time below).
     // "disable" = Exam follows the Date & Time strictly.
-    forceLiveMode: "enable",
+    forceLiveMode: "disable",
 
     // 📸 PHOTO SECURITY SETTINGS
     // "enable"  = Photo capture is MANDATORY to sign in.
