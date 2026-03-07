@@ -18,17 +18,12 @@ const CONFIG = {
     photoCapture: "disable",
 
     // 🔗 EXAM LINKS
-    //MOCK EXAM LINK
-    //examLink: "https://gemini.google.com/share/11c8a232059e",
-    //ACTUAL EXAM LINK
-    //examLink: "https://gemini.google.com/share/d8c738f8188a",
-    //ACTUAL EXAM LINK
     examLink: "https://gemini.google.com/share/903e8c6094e6",
 
     // 🗓️ SCHEDULE (Format: YYYY-MM-DDTHH:MM:SS)
     // Make sure to use military time (24-hour format)
-    startDateTime: "2026-03-08T18:00:00",
-    endDateTime: "2026-03-08T19:00:00",
+    startDateTime: "2026-03-10T18:00:00",
+    endDateTime: "2026-03-10T19:00:00",
 
     // ⏳ DURATION (in minutes)
     examDurationMinutes: 60,
@@ -36,6 +31,6 @@ const CONFIG = {
     // 📝 DISPLAY DETAILS (These appear on the screen)
     examName: "National Institutes Selection Test",
     examCode: "NIST-001",
-    examDateText: "08 March 2026",
+    examDateText: "10 March 2026",
     examTimeText: "06:00 PM to 07:00 PM"
 };
