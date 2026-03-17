@@ -26,7 +26,7 @@ const CONFIG = {
     endDateTime: "2026-04-12T16:00:00",
 
     // ⏳ DURATION (in minutes)
-    examDurationMinutes: 60,
+    examDurationMinutes: 120,
 
     // 📝 DISPLAY DETAILS (These appear on the screen)
     examName: "Engineering Eligibility Examination",
