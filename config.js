@@ -10,7 +10,7 @@ const CONFIG = {
     // ⚡ FORCE LIVE MODE (Overrides Schedule)
     // "enable"  = Exam is OPEN NOW (ignores Date & Time below).
     // "disable" = Exam follows the Date & Time strictly.
-    forceLiveMode: "enable",
+    forceLiveMode: "disable",
 
     // 📸 PHOTO SECURITY SETTINGS
     // "enable"  = Photo capture is MANDATORY to sign in.
@@ -18,7 +18,7 @@ const CONFIG = {
     photoCapture: "enable",
 
     // 🔗 EXAM LINKS
-    //examLink: "https://gemini.google.com/share/6adbfc3c625e",
+    examLink: "https://gemini.google.com/share/6adbfc3c625e",
 
     // 🗓️ SCHEDULE (Format: YYYY-MM-DDTHH:MM:SS)
     // Make sure to use military time (24-hour format)
